@@ -84,7 +84,7 @@ currentConversationId = urlParams.get('conversationid');
 
 client.setEnvironment('mypurecloud.com.jp');
 client.loginImplicitGrant(
-    'fade58a7-3588-4606-981b-782168bd325d',
+    '15f6d218-515f-4f1b-a681-7fb0ebc02890',
     'https://chinarn.github.io/chat-assistant-blueprint/',
     { state: currentConversationId })
 .then(data => {
