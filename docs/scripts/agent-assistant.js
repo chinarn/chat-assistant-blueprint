@@ -24,6 +24,7 @@ function showRecommendations(suggArr, conversationId, communicationId){
         var suggestContainer = document.createElement("div");
         suggestContainer.appendChild(suggest);
         suggestContainer.className = "suggest-container";
+        suggestContainer.markdown = 1;
         document.getElementById("agent-assist").appendChild(suggestContainer);
     }    
 }
