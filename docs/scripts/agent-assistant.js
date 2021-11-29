@@ -11,7 +11,9 @@ let stackedText = '';
 
 function showRecommendations(suggArr, conversationId, communicationId){    
     // Clears all the recommended mesages from the page
-    clearRecommendations();
+    
+    if ( suggArr.length == 5 )
+        clearRecommendations();
 
     // Display recommended replies in HTML
     for (var i = 0; i < suggArr.length; i++) {
