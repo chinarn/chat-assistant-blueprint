@@ -14,6 +14,10 @@ body {
     top: 48;
 }
 
+.agent-assistant b{
+    color: #0000FF;
+}
+
 .agent-assistant a{
     color: #FF4F1F;
 }
