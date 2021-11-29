@@ -23,7 +23,7 @@ function showRecommendations(suggArr, conversationId, communicationId){
         });
 
         var suggestheader = document.createElement("a");
-        suggestheader.innerHTML = "<p style=""color:blue;"">Suggested Response</p>";
+        suggestheader.innerHTML = "Suggested Response";
             
         var suggestContainer = document.createElement("div");
         suggestContainer.appendChild(suggestheader);
