@@ -22,7 +22,11 @@ function showRecommendations(suggArr, conversationId, communicationId){
             sendMessage(this.innerText, conversationId, communicationId);
         });
 
+        var suggestheader = document.createElement("a");
+        suggestheader.innerHTML = "<p style="color:blue;">Suggested Response</p>";
+            
         var suggestContainer = document.createElement("div");
+        suggestContainer.appendChild(suggestheader);
         suggestContainer.appendChild(suggest);
         suggestContainer.className = "suggest-container";
         document.getElementById("agent-assist").appendChild(suggestContainer);
