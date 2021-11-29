@@ -10,7 +10,7 @@ const responseMap = {
     3: "We're sorry to hear about your experience.",
     4: "We're glad that you enjoy our service!",
     5: "Goodbye. Please don't forget to like and subscribe to our channel.", 
-    6: "[google](google.com.my)"
+    6: "google"
 }
 
 const keywordMap = {
