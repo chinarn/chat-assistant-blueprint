@@ -9,7 +9,9 @@ const responseMap = {
     2: "I could provide you a one-time discount",
     3: "We're sorry to hear about your experience.",
     4: "We're glad that you enjoy our service!",
-    5: "Goodbye. Please don't forget to like and subscribe to our channel." 
+    5: "Goodbye. Please don't forget to like and subscribe to our channel."
+    6: "<img src=https://assets-global.website-files.com/5de87425133808841c6e3b3e/61891febd278607ea13b9a5d_TV%20marketing%20top%20panel%20desktop%20(1).png>",
+    7: "test"
 }
 
 const keywordMap = {
@@ -23,7 +25,9 @@ const keywordMap = {
     'amazing': 4,
     'thank': 4,
     'helpful': 4,
-    'bye': 5
+    'bye': 5,
+    'picture': 6,
+    'test' : 7
 }
 
 export default {
