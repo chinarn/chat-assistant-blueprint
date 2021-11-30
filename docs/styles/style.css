@@ -17,11 +17,13 @@ body {
 .agent-assistant b{
     color: #000000;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .agent-assistant a{
     color: #000000;
     font-weight: normal;
+    font-size: 15px;
 }
 
 .agent-assistant a:hover{
