@@ -8,6 +8,7 @@ const conversationsApi = new platformClient.ConversationsApi();
 
 // Messages of the client that are sent in a straight series.
 let stackedText = ''; 
+let stackedQueries = [];
 
 function showRecommendations(text, suggArr, conversationId, communicationId){    
     // Clears all the recommended mesages from the page
@@ -18,14 +19,12 @@ function showRecommendations(text, suggArr, conversationId, communicationId){
     for (var i = 0; i < suggArr.length; i++) {
         var suggest = document.createElement("a");
         var suggestheader = document.createElement("b");
-        suggestheader.innerHTML = text[i];
         suggest.innerHTML = suggArr[i];
+        suggestheader.innerHTML = text[i];
         suggest.addEventListener('click', function(event) {
             sendMessage(this.innerText, conversationId, communicationId);
         });
 
-        
-            
         var suggestContainer = document.createElement("div");
         suggestContainer.appendChild(suggestheader);
         suggestContainer.appendChild(suggest);
@@ -54,12 +53,13 @@ function clearRecommendations(){
 export default {
     getRecommendations(text, conversationId, communicationId){
         stackedText += text;
+        stackedQueries[stackedQueries.length] = text;
         console.log(stackedText);
         // Unoptimized because it's reanalyzing a growing amount of text as long as
         // customer is uninterrupted. But good enough for the sample.
         let recommendations = assistService.analyzeText(stackedText);
         console.log(recommendations);
-        showRecommendations(text, recommendations, conversationId, communicationId);
+        showRecommendations(stackedQueries, recommendations, conversationId, communicationId);
     },
 
     clearRecommendations(){
@@ -68,5 +68,6 @@ export default {
 
     clearStackedText(){
         stackedText = '';
+        stackedQueries = [];
     }
 }
