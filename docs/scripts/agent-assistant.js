@@ -9,7 +9,7 @@ const conversationsApi = new platformClient.ConversationsApi();
 // Messages of the client that are sent in a straight series.
 let stackedText = ''; 
 
-function showRecommendations(suggArr, conversationId, communicationId){    
+function showRecommendations(text, suggArr, conversationId, communicationId){    
     // Clears all the recommended mesages from the page
     
     clearRecommendations();
@@ -23,7 +23,7 @@ function showRecommendations(suggArr, conversationId, communicationId){
         });
 
         var suggestheader = document.createElement("b");
-        suggestheader.innerHTML = "Suggested Response ";
+        suggestheader.innerHTML = text;
             
         var suggestContainer = document.createElement("div");
         suggestContainer.appendChild(suggestheader);
@@ -58,7 +58,7 @@ export default {
         // customer is uninterrupted. But good enough for the sample.
         let recommendations = assistService.analyzeText(stackedText);
         console.log(recommendations);
-        showRecommendations(recommendations, conversationId, communicationId);
+        showRecommendations(text, recommendations, conversationId, communicationId);
     },
 
     clearRecommendations(){
