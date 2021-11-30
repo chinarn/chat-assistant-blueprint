@@ -17,13 +17,14 @@ function showRecommendations(text, suggArr, conversationId, communicationId){
     // Display recommended replies in HTML
     for (var i = 0; i < suggArr.length; i++) {
         var suggest = document.createElement("a");
+        var suggestheader = document.createElement("b");
+        suggestheader.innerHTML = text;
         suggest.innerHTML = suggArr[i];
         suggest.addEventListener('click', function(event) {
             sendMessage(this.innerText, conversationId, communicationId);
         });
 
-        var suggestheader = document.createElement("b");
-        suggestheader.innerHTML = text;
+        
             
         var suggestContainer = document.createElement("div");
         suggestContainer.appendChild(suggestheader);
