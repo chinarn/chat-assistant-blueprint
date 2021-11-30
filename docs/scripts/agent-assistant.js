@@ -18,7 +18,7 @@ function showRecommendations(text, suggArr, conversationId, communicationId){
     for (var i = 0; i < suggArr.length; i++) {
         var suggest = document.createElement("a");
         var suggestheader = document.createElement("b");
-        suggestheader.innerHTML = text;
+        suggestheader.innerHTML = text[i];
         suggest.innerHTML = suggArr[i];
         suggest.addEventListener('click', function(event) {
             sendMessage(this.innerText, conversationId, communicationId);
