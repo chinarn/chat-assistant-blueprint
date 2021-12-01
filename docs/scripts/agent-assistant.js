@@ -20,7 +20,7 @@ function showRecommendations(text, suggArr, conversationId, communicationId){
         var suggest = document.createElement("a");
         var suggestheader = document.createElement("b");
         suggest.innerHTML = suggArr[i];
-        suggestheader.innerHTML = text[suggestheader.length-1-i];
+        suggestheader.innerHTML = text[i];
         suggest.addEventListener('click', function(event) {
             sendMessage(this.innerText, conversationId, communicationId);
         });
