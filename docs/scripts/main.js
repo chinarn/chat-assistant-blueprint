@@ -82,9 +82,9 @@ function subscribeChatConversation(conversationId){
 const urlParams = new URLSearchParams(window.location.search);
 currentConversationId = urlParams.get('conversationid');
 
-client.setEnvironment('mypurecloud.com.au');
+client.setEnvironment('mypurecloud.jp');
 client.loginImplicitGrant(
-    '89c669d5-8e4c-496f-b537-2c0e31ead3d0',
+    '5f899f1c-49bd-470a-b02a-67342da54f6b',
     'https://chinarn.github.io/chat-assistant-blueprint/',
     { state: currentConversationId })
 .then(data => {
