@@ -33,7 +33,7 @@ let onMessage = (data) => {
 
             // Conversation values for cross reference
             let conversation = currentConversation;
-            let participant = conversation.participants.find(p => p.chats[0].id == senderId);
+            let participant = conversation.participants.find(p => p.messages[0].id == senderId);
             let purpose = participant.purpose;
 
             // Get agent communication ID
@@ -42,7 +42,7 @@ let onMessage = (data) => {
                 agentAssistant.clearStackedText();
             } else {
                 let agent = conversation.participants.find(p => p.purpose == 'agent');
-                agentID = agent.chats[0].id;
+                agentID = agent.messages[0].id;
             }
 
             // Get some recommended replies
@@ -60,8 +60,8 @@ function setupChatChannel(){
     .then(data => {
         // Subscribe to incoming chat conversations
         return controller.addSubscription(
-            `v2.users.${userId}.conversations.chats`,
-            subscribeChatConversation(currentConversationId));
+            `v2.users.${userId}.conversations.messages`,
+            subscribeMessageConversation(currentConversationId));
     });
 }
 
@@ -72,7 +72,7 @@ function setupChatChannel(){
  */
 function subscribeChatConversation(conversationId){
     return controller.addSubscription(
-            `v2.conversations.chats.${conversationId}.messages`,
+            `v2.conversations.messages.${conversationId}.messages`,
             onMessage);
 }
 
