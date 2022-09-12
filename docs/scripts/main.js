@@ -93,18 +93,14 @@ client.loginImplicitGrant(
 
     // Assign conversation id
     currentConversationId = data.state;
-    currentConversationId = '681338e3-164b-4cd3-b487-3f257d95f43e';
-    console.log('Conversation ID');
-    console.log(currentConversationId);
     
     // Get Details of current User
     return usersApi.getUsersMe();
 }).then(userMe => {
     userId = userMe.id;
-    console.log(userId);
     
     // Get current conversation
-    return conversationsApi.getConversation(currentConversationId);
+    return conversationsApi.getConversation('681338e3-164b-4cd3-b487-3f257d95f43e');
 }).then((conv) => { 
     currentConversation = conv;
 
