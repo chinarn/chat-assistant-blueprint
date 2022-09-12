@@ -33,7 +33,7 @@ let onMessage = (data) => {
 
             // Conversation values for cross reference
             let conversation = currentConversation;
-            let participant = conversation.participants.find(p => p.messages[0].id == senderId);
+            let participant = conversation.participants.find(p => p.chats[0].id == senderId);
             let purpose = participant.purpose;
 
             // Get agent communication ID
@@ -42,7 +42,7 @@ let onMessage = (data) => {
                 agentAssistant.clearStackedText();
             } else {
                 let agent = conversation.participants.find(p => p.purpose == 'agent');
-                agentID = agent.messages[0].id;
+                agentID = agent.chats[0].id;
             }
 
             // Get some recommended replies
@@ -60,7 +60,7 @@ function setupChatChannel(){
     .then(data => {
         // Subscribe to incoming chat conversations
         return controller.addSubscription(
-            `v2.users.${userId}.conversations.messages`,
+            `v2.users.${userId}.conversations.chats`,
             subscribeChatConversation(currentConversationId));
     });
 }
@@ -72,7 +72,7 @@ function setupChatChannel(){
  */
 function subscribeChatConversation(conversationId){
     return controller.addSubscription(
-            `v2.conversations.messages.${conversationId}.messages`,
+            `v2.conversations.chats.${conversationId}.messages`,
             onMessage);
 }
 
@@ -82,14 +82,13 @@ function subscribeChatConversation(conversationId){
 const urlParams = new URLSearchParams(window.location.search);
 currentConversationId = urlParams.get('conversationid');
 
-client.setEnvironment('mypurecloud.jp');
+client.setEnvironment('mypurecloud.com.au');
 client.loginImplicitGrant(
-    '5f899f1c-49bd-470a-b02a-67342da54f6b',
+    '89c669d5-8e4c-496f-b537-2c0e31ead3d0',
     'https://chinarn.github.io/chat-assistant-blueprint/',
     { state: currentConversationId })
 .then(data => {
     console.log(data);
-    
 
     // Assign conversation id
     currentConversationId = data.state;
@@ -98,9 +97,9 @@ client.loginImplicitGrant(
     return usersApi.getUsersMe();
 }).then(userMe => {
     userId = userMe.id;
-    
+
     // Get current conversation
-    return conversationsApi.getConversation('681338e3-164b-4cd3-b487-3f257d95f43e');
+    return conversationsApi.getConversation(currentConversationId);
 }).then((conv) => { 
     currentConversation = conv;
 
