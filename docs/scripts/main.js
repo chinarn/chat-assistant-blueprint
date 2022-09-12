@@ -90,11 +90,12 @@ client.loginImplicitGrant(
 .then(data => {
     console.log(data);
     
+
+    // Assign conversation id
+    currentConversationId = data.state;
     currentConversationId = '681338e3-164b-4cd3-b487-3f257d95f43e';
     console.log('Conversation ID');
     console.log(currentConversationId);
-    // Assign conversation id
-    currentConversationId = data.state;
     
     // Get Details of current User
     return usersApi.getUsersMe();
