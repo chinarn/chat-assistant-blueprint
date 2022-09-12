@@ -34,7 +34,7 @@ function showRecommendations(text, suggArr, conversationId, communicationId){
 }
 
 function sendMessage(message, conversationId, communicationId){
-    conversationsApi.postConversationsChatCommunicationMessages(
+    conversationsApi.postConversationsMessageCommunicationMessages(
         conversationId, communicationId,
         {
             "body": message,
