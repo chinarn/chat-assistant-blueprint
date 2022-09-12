@@ -90,6 +90,7 @@ client.loginImplicitGrant(
 .then(data => {
     console.log(data);
 
+    console.log(currentConversationId);
     // Assign conversation id
     currentConversationId = data.state;
     
@@ -97,7 +98,8 @@ client.loginImplicitGrant(
     return usersApi.getUsersMe();
 }).then(userMe => {
     userId = userMe.id;
-
+    console.log(userId);
+    
     // Get current conversation
     return conversationsApi.getConversation(currentConversationId);
 }).then((conv) => { 
