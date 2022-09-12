@@ -61,7 +61,7 @@ function setupChatChannel(){
         // Subscribe to incoming chat conversations
         return controller.addSubscription(
             `v2.users.${userId}.conversations.messages`,
-            subscribeMessageConversation(currentConversationId));
+            subscribeChatConversation(currentConversationId));
     });
 }
 
